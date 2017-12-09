@@ -1,0 +1,14 @@
+<a [routerLink]=" ['./products', category.productFor, category.productType] ">
+<div class="categoryHomeWrap">
+    <div class="homeExploreTab">
+        <a href="#" class="categoryHomeAnchor">
+		<img [lazyLoad]="ImgUrl" alt="">
+		<h2 class="categoryHomeTitle">{{Title}}</h2>
+		<div class="categoryHomeDesc">
+		{{Description}}
+		</div>
+		<span class="categoryViewBtn">Shop {{Title}} <span class="iconShopBtn fa fa-arrow-circle-right"></span></span>
+		</a>
+    </div>
+</div>
+</a>

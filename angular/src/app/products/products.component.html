@@ -1,0 +1,12 @@
+<div class="commonPageWrap">
+		<div class="wrapper">
+			<div class="wrapInner">
+				<h1 class="titleCommon">{{for}} {{type}} <span>Authentic Art Wear For {{for}}</span></h1>
+				<div class="itemsWrapOuter clearfix">
+                    <productitem *ngFor="let product of products | myProductFilter:'productDesign'"
+					 [productitem]="product" (clickedItem)="loadRelatedItems($event)">					
+					</productitem>
+				</div>
+			</div>
+		</div>
+</div>

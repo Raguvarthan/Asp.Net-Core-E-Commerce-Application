@@ -1,0 +1,30 @@
+<div class="shoppingOrderWrap">
+    <h2 class="shoppingOrderHeading">Your Order</h2>
+    <table class="orderTable">
+        <tr>
+            <td>Bag Total</td>
+            <td><i class="fa fa-inr"></i>{{getCartTotal()}}</td>
+        </tr>
+        <tr>
+            <td>Bag Discount</td>
+            <td class="discountAmount"><i class="fa fa-inr"></i> 0</td>
+        </tr>
+        <tr>
+            <td>Estimated Tax</td>
+            <td><i class="fa fa-inr"></i>{{(getCartTotal() * .15).toFixed(2) }}</td>
+        </tr>
+        <tr>
+            <td>Coupon Discount</td>
+            <td class="discountAmount"><i class="fa fa-inr"></i> 0
+                <!-- <a href="" class="applyCoupon">Apply Coupon</a> --></td>
+        </tr>
+        <tr>
+            <td>Delivery Charges</td>
+            <td>Free</td>
+        </tr>
+        <tr>
+            <td>Order Total</td>
+            <td><i class="fa fa-inr"></i>{{(getCartTotal() * 1.15).toFixed(2) }}</td>
+        </tr>
+    </table>
+</div>

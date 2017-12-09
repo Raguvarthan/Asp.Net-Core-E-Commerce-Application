@@ -1,0 +1,43 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+<div class="commonPageWrap">
+    <div class="wrapper">
+        <div class="wrapInner">
+            <h1 class="titleCommon normalHeading">ADDRESS UPDATE</h1>
+            <div class="shoppingBgcommon">
+                <div class="shoppingBagWrapper clearfix">
+                    <div class="addressWrapper">
+                        <div class="selectAddressWrapper">
+                            <div class="selectRadioWrapOuter">
+                                <div class="selectAddressRadioWrap">
+                                <h2 class="deliveryAddressHeading">Delivery Address</h2>
+                                    <p>
+                                        <input type="radio" id="AddNewAddress" name="radio-group-Delivery" [checked]="(newDeliveryAddress)" (change)="check(true)">
+                                        <label for="AddNewAddress">Add new Address</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="SelectFromAddressBook" name="radio-group-Delivery" [disabled]="!isAddressAvailable()" [checked]="(!newDeliveryAddress)" (change)="check(false)">
+                                        <label for="SelectFromAddressBook">Select from Address Book</label>
+                                    </p>
+                                </div>
+                                <div class="selectDeliveryBillingRadioWrap">
+                                <h2 class="deliveryAddressHeading">Billing Address</h2>
+                                    <p>
+                                        <input type="radio" id="BillingSameAddress" name="radio-group-Billing" [checked]="(sameAsDeliveryAddress)" (change)="checkBilling(true)">
+                                        <label for="BillingSameAddress">Billing address is same as Delivery address</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="BillingDifferentAddress" name="radio-group-Billing" [checked]="(!sameAsDeliveryAddress)" (change)="checkBilling(false)">
+                                        <label for="BillingDifferentAddress">Select Different Billing address</label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    <newaddress *ngIf="newDeliveryAddress" [defaultAddress]=true [shippingAddress]="newDeliveryAddress" [billingAddress]="sameAsDeliveryAddress" (addressAdded)="addressAdded($event)"></newaddress>
+                    <primaryaddress></primaryaddress>
+                    <addressbook (addAddress)="addNewAddressClicked($event)"></addressbook>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+CardName: Any name
+CardNumber: 5123456789012346
+CVV: 123
+Expiry: May 2020
+
+1.payment pending
+2.payment received
+3.payment failed
+4.payment cancled
+
+1.Order Placed,
+2.Packing In Progress,
+3.Order Shipped
+4.Order Cancelled,
+5.Order Delivered,
+6.Order Replacement Initiated
+7.Order Replaced
+8.Order Refund Initiated
+9.Order Refunded
+
+1.Order placed,
+2.Order ready to be shipped,
+3.Order shipped,
+4.Order out for delivery,
+5.Order cancelled,
+6.Order delivered,
+7.Product replacement initiated,
+8.Product replaced,
+9.Refund initiated,
+10.Payment refunded,
+
+

@@ -1,0 +1,77 @@
+<div id="mainHeader" class="headertop" *ngIf="!scrolled" [ngClass]="{hideMainHeader: scrolled}">    
+	<div class="wrapper">
+		<div class="navBtn" [ngClass]="{activeNav: menuOpened == true}" (click)="openMenu()"><span></span></div>
+
+		<div class="logo"><a [routerLink]="['/']" (click)="menuOpened = false"><img src="../assets/img/logo-caption.png" alt="Artur Clive"></a></div>
+		<div class="logoMobile"><a [routerLink]="['/']" (click)="menuOpened = false"><img src="../assets/img/logo-arthur-clive-mobile.png" alt="Artur Clive"></a></div>
+		<div class="headerBtnWrap">
+			<div id="userIcon" class="commonIconBtnHeader userIcon tooltipsParent userLoggedIn popupHoverElement" (click)="LoginRegister()" (mouseover)="onMouseHover()">
+				<div class="popupAfterLoginOuter">
+				<div class="popupAfterLogin" *ngIf="this.appState.get('loggedIn')">
+				<div class="helloUserWrap">Hello, <span>{{getUserName()}}</span></div>
+				<a [routerLink]="['/orderlist']" (click)="menuOpened = false">My Orders</a>
+				<a [routerLink]="['./myaccount']" (click)="menuOpened = false">My Account</a>
+				<a (click)="SignOutClicked()">Signout</a>
+				</div>
+				<div class="popupAfterLogin" *ngIf="!this.appState.get('loggedIn')">
+				<a (click)="LoginRegister()">Login or Register</a>
+				</div>
+				</div>
+			</div>
+			<a [routerLink]="['./wishlist']" (click)="menuOpened = false"><div class="commonIconBtnHeader wishListBtn tooltipsParent">
+				<span class="tooltip">Show My Wishlist</span>
+				<span class="wishlistCount" >{{this.wishListService.getCount()}}</span></div></a>
+			<a [routerLink]="['./cart']" (click)="menuOpened = false"><div class="commonIconBtnHeader shoppingBagBtn tooltipsParent">
+				<span class="tooltip">Shopping Bag</span>
+				<span class="shoppingbagCountItem">{{this.cartService.getCount()}}</span></div></a>
+		</div>
+	</div>
+</div>
+<div id="fixedHeader" class="headertop"  *ngIf="scrolled || mobile" [ngClass]="{fixedHeaderActive: scrolled, fixedHeader: scrolled || mobile}">
+	<div class="wrapper">
+		<div class="navBtn" [ngClass]="{activeNav: menuOpened == true}" (click)="openMenu()"><span></span></div>
+		<div class="logoMobile"><a [routerLink]="['/']" (click)="menuOpened = false"><img src="../assets/img/logo-arthur-clive-mobile.png" alt="Artur Clive"></a></div>
+		<div class="headerBtnWrap">
+			<div class="commonIconBtnHeader userIcon tooltipsParent userLoggedIn popupHoverElement" (click)="LoginRegister()">
+				<div class="popupAfterLoginOuter">
+				<div class="popupAfterLogin" *ngIf="this.appState.get('loggedIn')">
+				<div class="helloUserWrap">Hello, <span>{{getUserName()}}</span></div>
+				<a [routerLink]="['/orderlist']" (click)="menuOpened = false">My Orders</a>
+				<a [routerLink]="['./myaccount']" (click)="menuOpened = false">My Account</a>
+				<a (click)="SignOutClicked()">Signout</a>
+				</div>
+				<div class="popupAfterLogin" *ngIf="!this.appState.get('loggedIn')">
+				<a (click)="LoginRegister()">Login or Register</a>
+				</div>
+				</div>
+			</div>
+			<a [routerLink]="['./wishlist']" (click)="menuOpened = false"><div class="commonIconBtnHeader wishListBtn tooltipsParent">
+				<span class="tooltip">Show My Wishlist</span>
+				<span class="wishlistCount">{{this.wishListService.getCount()}}</span></div></a>
+			<a [routerLink]="['./cart']" (click)="menuOpened = false"><div class="commonIconBtnHeader shoppingBagBtn tooltipsParent">
+				<span class="tooltip">Shopping Bag</span>
+				<span class="shoppingbagCountItem">{{this.cartService.getCount()}}</span></div></a>
+		</div>
+	</div>
+</div>
+<div class="navWrapperOuter" *ngIf="menuOpened"  [ngStyle]="{'z-index' : 10, 'position': 'fixed'}" [ngClass]="{navOpened: menuOpened == true, fixednavWrapperOuter: scrolled}">
+	<div class="wrapper">
+		<div class="wrapInner">
+			<nav class="mainNav">
+				<ul>
+					<li><a href="">Home</a></li>
+					<li><a [routerLink]="['/products/Women/Tshirt']" (click)="menuOpened = !menuOpened">Women</a></li>
+					<li><a [routerLink]="['/products/Men/Tshirt']" (click)="menuOpened = !menuOpened">Men</a></li>
+					<li><a [routerLink]="['/products/Girls/Tshirt']" (click)="menuOpened = !menuOpened">Girls</a></li>
+					<li><a [routerLink]="['/products/Boys/Tshirt']" (click)="menuOpened = !menuOpened">Boys</a></li>
+					<li><a [routerLink]="['/products/All/Art']" (click)="menuOpened = !menuOpened">Art for Home</a></li>
+					<li><a href="">Artists</a></li>
+					<li><a href="">Gift Vouchers</a></li>
+					<li><a href="">Special Offers</a></li>
+					<li><a [routerLink]="['./contact']" (click)="menuOpened = !menuOpened">Contacts</a></li>
+				</ul>
+			</nav>
+			<div class="navBottomSpace"></div>
+		</div>
+	</div>
+</div>

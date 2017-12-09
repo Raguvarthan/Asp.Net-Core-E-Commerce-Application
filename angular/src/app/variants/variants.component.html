@@ -1,0 +1,79 @@
+<div class="commonPageWrap">
+    <div class="wrapper">
+        <div class="wrapInner">
+            <div class="pageBgWhite">
+                <div class="productMainWrap clearfix">
+                    <div class="productImgwrap"><img [src]="variants?.topItem.minioObject_URL" alt=""></div>
+                    <div class="productBasicInfoWrap">
+                        <h1>{{variants?.topItem.productDesign}}</h1>
+                        <!-- <div class="reviewTab">
+								<span class="review"></span>
+								<a href="" class="reviewLinkBtn"></a>
+							</div> -->
+                        <div class="priceTab"><span>INR</span> {{variants?.topItem.productPrice}}</div>
+                        <!-- <div class="productShortDescription">
+							    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+							</div> -->
+                        <div class="colourTab">
+                            <div class="colourHeading">Colour</div>
+                            <div class="colourBoxWrap clearfix">
+                                <div *ngFor="let variant of variants?.variants | myProductFilter:'productColour'"><input type="radio" [id]="variant.productColour" name="selectedColour" [checked]="isChecked(variant.productColour)"
+                                        (change)="checked($event, variant)"><label [for]="variant.productColour" [ngStyle]="{'background-color': variant.productColour, 'border':'1px solid #cecece'}">{{variant.productColour}}</label></div>
+                            </div>
+                        </div>
+                        <colorsizestock [selectedVariant]="selectedVariant" [initItem]="initItem"></colorsizestock>
+                        <div class="addToWishListWrap" (click)="addToWishList()">
+                        <a class="wishLIstBtn"><span class="fa fa-heart-o"></span> Add to Wish List</a>
+                        </div>
+                        <div class="singlePageBtnsWrap">
+                            <button type="submit" class="" (click)="addToCart()" [disabled]="isBagDisabled()">Add to Shopping Bag <span class="iconShopBtn-Bag fa fa-shopping-bag"></span></button>
+                            <a href="#prdDetails" class="viewProductDetailsCustom" scrollTo href="#prdDetails">Product Details</a>
+                        </div>
+                        <div class="productMetaWrap">
+                            <div *ngIf="variants?.topItem.productSize != ''"><span class="posted_in">Categories: <a [routerLink]="['/']" rel="tag">Clothing</a></span></div>
+                            <div *ngIf="variants?.topItem.productSize == ''"><span class="posted_in">Categories: <a [routerLink]="['/products/All/Art']" rel="tag">Art</a></span></div>
+                        </div>
+
+                    </div>
+                </div>
+                <span id="prdDetails"></span>
+                <div class="productDescription">
+                    <h2>Description</h2>
+                    <p>{{variants?.topItem.productDescription}}</p>                    
+                </div>
+                <div class="productAdditionalInfo">
+                    <h2>Additional information</h2>
+                    <h3>DELIVERY TIMES:</h3>
+                    <p>Within India  : 4 To 10 Days Depending On Pin Code</p>
+                    <p>Outside India : 21 To 30 Days </p>
+                    <br>
+                    <div *ngIf="variants?.topItem.productMaterial == 'Cotton'">
+                    <h3>MATERIAL AND WASHING INSTRUCTIONS:</h3>
+                    <p>100% Cotton<br>
+                     Wash Inside Out<br>
+                     Use Mild  Detergent<br>
+                     30°C  Mild Wash<br>
+                     Do Not Iron On The Design<br>
+                     Do Not Bleach<br>
+                     Do Not Tumble Dry<br>
+                     Do Not Chemical Dry Clean
+                     </p>
+                    </div>
+                    
+                </div>
+                <div class="productAdditionalInfo">
+                    <h2>Product Review </h2>
+                </div>
+                <!-- <div class="reviewCommentsWrap">
+						<h2>Product Review </h2>
+
+					</div> -->
+                <!-- <div style="height:200px;"></div> -->
+            </div>
+            <h1 class="titleCommon2">Related Products<span>Authentic {{variants?.topItem.productType}} For {{variants?.topItem.productFor}}</span></h1>
+            <div class="itemsWrapOuter clearfix">
+                <relateditem *ngFor="let relatedItem of relatedItems | myProductFilter:'productDesign'; let i=index" [indexNumber]="i" [productitem]="relatedItem" (variantItemClicked)="variantItemClicked($event)"  ></relateditem>
+            </div>
+        </div>
+    </div>
+</div>

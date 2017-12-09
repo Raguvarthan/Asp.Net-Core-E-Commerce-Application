@@ -1,0 +1,443 @@
+@import 'mixin';
+
+.selectAddressWrapper{
+	position: relative;
+	padding: 20px;
+	box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.26);
+	margin-bottom: 30px;
+
+	.deliveryAddressHeading{
+		@include font-size(18px);
+		color: #2a2c2e;
+		padding-bottom: 12px;
+		margin-bottom: 25px;
+		border-bottom: 1px solid #aaa;
+	}
+	.selectRadioWrapOuter{
+		position: relative;
+		display: flex;
+		justify-content: flex-start;
+
+		@include MQ(639) {
+			flex-direction:column;
+		}
+
+		.selectAddressRadioWrap{
+			position: relative;
+			width: 48%;
+			background: rgba(#ccc, 0.2);
+			// border: 1px solid #c6c6c6;
+			padding: 20px;
+			margin-right: auto;
+
+			@include MQ(639) {
+				width: 100%;
+				margin-bottom: 15px;
+			}
+		}
+		.selectDeliveryBillingRadioWrap{
+			position: relative;
+			width: 48%;
+			background: rgba(#ccc, 0.2);
+			// border: 1px solid #c6c6c6;
+			padding: 20px;
+			margin-left: auto;
+
+			@include MQ(639) {
+				width: 100%;
+			}
+		}
+		p{
+			@include font-size(16px);
+			font-weight: 300;
+			margin-bottom: 12px;
+			color:2a2c2e;
+			&:last-of-type{
+				margin-bottom: 0;
+			}
+
+			[type="radio"]:checked, [type="radio"]:not(:checked) {
+			  position: absolute;
+			  left: -9999px;
+			}
+			[type="radio"]:checked + label, [type="radio"]:not(:checked) + label {
+			  position: relative;
+			  padding-left: 28px;
+			  cursor: pointer;
+			  line-height: 20px;
+			  display: inline-block;
+			  color: #666;
+			}
+			[type="radio"]:checked + label:before,
+			[type="radio"]:not(:checked) + label:before {
+			  content: '';
+			  position: absolute;
+			  left: 0;
+			  top: 0;
+			  width: 18px;
+			  height: 18px;
+			  border: 1px solid #999;
+			  border-radius: 100%;
+			  background: #fff;
+			}
+			[type="radio"]:checked + label:after,
+			[type="radio"]:not(:checked) + label:after {
+			  content: '';
+			  width: 12px;
+			  height: 12px;
+			  background: rgba(252, 119, 0, 1.0);
+			  position: absolute;
+			  top: 3px;
+			  left: 3px;
+			  border-radius: 100%;
+			  -webkit-transition: all 0.2s ease;
+			  transition: all 0.2s ease;
+			}
+			[type="radio"]:not(:checked) + label:after {
+			  opacity: 0;
+			  -webkit-transform: scale(0);
+			  transform: scale(0);
+			}
+			[type="radio"]:checked + label:after {
+			  opacity: 1;
+			  -webkit-transform: scale(1);
+			  transform: scale(1);
+			}
+		}
+
+	}
+
+}
+
+.addNewAddressWrapper{
+	position: relative;
+	padding: 20px;
+	box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.26);
+	margin-bottom: 30px;
+
+	.addNewAddressHeading{
+		@include font-size(18px);
+		color: #2a2c2e;
+		padding-bottom: 12px;
+		margin-bottom: 25px;
+		border-bottom: 1px solid #aaa;
+	}
+	.formRow {
+	    margin: 0 0 20px 0;
+	    position: relative;
+	    display: flex;
+	    // justify-content: flex-start;
+
+	    @include MQ(639) {
+	    	flex-direction: column;
+	    	margin: 0 0 15px 0;
+	    }
+
+	    .twoCol{
+	    	width: 48%;
+	    	margin-right: auto;
+
+	    	@include MQ(639) {
+	    		width: 100%;
+	    		margin: 0 0 15px 0;
+	    	}
+
+	    	&:nth-of-type(2n){
+	    		margin-left: auto;
+	    		margin-right: 0;
+
+	    		@include MQ(639) {
+		    		width: 100%;
+		    		margin: 0 0 0 0;
+	    		}
+	    	}
+	    }
+
+	    input[type="text"]{
+	    	width: 100%;
+	    	padding: 10px 10px;
+	    	font-family: 'Roboto';
+	    	font-weight: 300;
+	    	@include font-size(16px);
+	    	border: 1px solid #c1c1c1;
+	    	outline: none;
+	    	
+	    	&:nth-of-type(2){
+	    		margin-left: auto;
+	    		margin-right: 0;
+	    	}
+	    }
+	    textarea{
+	    	width: 100% !important;
+	    	padding: 10px 10px;
+	    	height: 80px;
+	    	font-family: 'Roboto';
+	    	font-weight: 300;
+	    	@include font-size(16px);
+	    	border: 1px solid #c1c1c1;
+	    	outline: none;
+	    }
+
+	    button[type="submit"]{
+	    	width: 100%;
+	    	position: relative;
+	    	display: block;
+	    	background: rgba(17, 17, 17, 1);
+	    	padding: 12px;
+	    	@include font-size(16px);
+	    	font-weight: 300;
+	    	text-transform: uppercase;
+	      	font-family: 'Roboto';
+	      	letter-spacing: 0.08em;
+	    	color: #fff;
+	    	border: none;
+	    	text-decoration: none;
+	    	outline: none;
+	    	box-shadow: inset 0 0 0 0 rgba(252, 119, 0, 1.0);
+	        transition: all ease 0.8s;
+
+	        &:hover{
+			    box-shadow: inset 0 312px 0 0 rgba(252, 119, 0, 1.0);
+			    color: #fff;
+			}
+	    }
+	}
+}
+
+.addressBookWrapper{
+	position: relative;
+	padding: 20px;
+	box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.26);
+	margin-bottom: 30px;
+
+	.primaryAddressWrapper{
+		position: relative;
+		margin-bottom: 10px;
+
+		.primaryAddressHeading{
+			@include font-size(18px);
+			color: #2a2c2e;
+			padding-bottom: 12px;
+			margin-bottom: 25px;
+			border-bottom: 1px solid #aaa;
+		}
+		.userAddressWrap{
+			position: relative;
+			display: flex;
+			@include font-size(16px);
+			color: #2a2c2e;
+
+			@include MQ(639) {
+				flex-direction: column;
+			}
+
+			h4{
+				@include font-size(16px);
+				font-weight: 700;
+				color: #2a2c2e;
+				margin-bottom: 12px;
+			}
+			.billingAddressWrap{
+				background: rgba(#c6c6c6, 0.2);
+				width: 48%;
+				padding: 20px;
+				margin-right: auto;
+
+				@include MQ(639) {
+					width: 100%;
+					margin: 0 0 15px 0;
+				}
+			}
+			.deliveryAddressWrap{
+				background: rgba(#c6c6c6, 0.2);
+				width: 48%;
+				padding: 20px;
+				margin-left: auto;
+
+				@include MQ(639) {
+					width: 100%;
+					margin: 0 0 0 0;
+				}
+			}
+		}
+	}
+
+	.addressBookWrap{
+		position: relative;
+
+		.headingAddressBook{
+			@include font-size(18px);
+			color: #2a2c2e;
+			padding-bottom: 12px;
+			margin-bottom: 25px;
+			border-bottom: 1px solid #aaa;
+		}
+		
+		.addNewAddressWrap{
+			position: relative;
+			margin-bottom:15px;
+
+			a{
+				width: 100%;
+				display: block;
+				position: relative;
+				background: rgba(17, 17, 17, 1);
+				text-align: center;
+				@include font-size(16px);
+				color: #fff;
+				padding: 10px 15px 10px 15px;
+				text-decoration: none;
+
+				box-shadow: inset 0 0 0 0 rgba(252, 119, 0, 1.0);
+		    	transition: all ease 0.8s;
+
+		    	&:hover{
+		    		box-shadow: inset 0 312px 0 0 rgba(252, 119, 0, 1.0);
+		    		color: #fff;
+
+		    		span{
+		    			color: #fff;
+		    		}
+		    	}
+
+				span{
+					// position: absolute;
+					// top: 8px;
+					// left: 15px;
+					@include font-size(20px);
+					color: rgba(252, 119, 0, 1.0);
+					margin-right: 10px;
+					transition: all ease 0.8s;
+				}
+			}
+
+		}
+
+		.addressBookWrapInner{
+			position: relative;
+			@include font-size(16px);
+			color: #2a2c2e;
+			
+			.addressBookTab{
+				position: relative;
+				display: flex;
+				flex-wrap: wrap;
+				// justify-content: space-between;
+				flex-direction: row;
+
+				@include MQ(639) {
+					flex-direction: column;
+				}
+
+				.addAddressBook{
+					position: relative;
+					flex-basis: 48%;
+					// float:left;
+					padding: 20px 18px 20px 20px;
+					background: rgba(#c6c6c6, 0.3);
+					@include font-size(16px);
+					color: #2a2c2e;
+					margin-top: 10px;
+					margin-bottom: 10px;
+					width: 98%;
+
+					@include MQ(639) {
+						margin: 10px 0;
+					}
+
+					&:nth-of-type(2n){
+						margin-left: auto;
+
+						@include MQ(639) {
+							margin: 5px 0 0;
+						}
+					}
+
+					.address{
+						position: relative;
+						padding: 0 70px 20px 0;
+					}
+
+					p{
+						padding-bottom: 20px;
+
+						&:last-of-type{
+							padding-bottom: 0;
+						}
+					}
+					a{
+						position: relative;
+						@include font-size(11px);
+						color: #999;
+						display: block;
+						padding: 2px 0 5px 30px;
+						text-transform: uppercase;
+
+						span{
+							position: absolute;
+							top: 0;
+							left: 0;
+							@include font-size(18px);
+							color: #999;
+							width: 30px;
+
+							&.fa-inr{
+								&:before{
+									padding-left: 4px;
+								}
+							}
+						}
+					}
+					.setAddressBillingDelivery{
+						position: relative;
+						width: 100%;
+						text-align: left;
+						@include font-size(11px);
+						color: #999;
+						background: transparent;
+						border: 0;
+						outline: none;
+						padding: 5px 5px 5px 25px;
+						text-transform: uppercase;
+						margin-bottom: 5px;
+
+						&:last-of-type{
+							margin-bottom: 0;
+						}
+						&:hover{
+							text-decoration: underline;
+						}
+
+						span{
+							position: absolute;
+							top: 2px;
+							left: 0;
+							@include font-size(18px);
+							color: #999;
+							// width: 30px;
+
+							&.fa-inr{
+								&:before{
+									padding-left: 4px;
+								}
+							}
+						}
+					}
+					.removeAddress{
+						position: absolute;
+						top: 22px;
+						right: 20px;
+						border: 0;
+						outline: none;
+						background: rgba(#333, 0.7);
+						@include font-size(11px);
+						text-transform: uppercase;
+						text-align: center;
+						padding: 5px 10px 5px;
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,51 @@
+            <div class="ordersOuterWrap">             
+              <div class="ordersMainWrap">
+                <a (click)="opened = !opened" style="cursor:pointer">
+                <div class="ordersWrapRow1 clearfix">
+                  <div class="orderNumberBtnWrap">
+                    <span class="ordersWrapRow1Heading">ORDER NUMBER</span>
+                    <div class="orderNumberBtnInner clearfix">
+                      <div class="orderNumber">ACODR-{{orderItem.orderId}}</div>
+                      <a href="" class="orderDetailsAnchor">Order Details</a>
+                    </div>
+                  </div>
+                  <div class="orderPlaced">
+                    <span class="ordersWrapRow1Heading">ORDER DATE</span>
+                    <span class="ordersWrapRow1Desc">{{orderItem.id.creationTime.substring(8,10) + '-' + orderItem.id.creationTime.substring(5,7) + '-' + orderItem.id.creationTime.substring(0,4) }}</span>
+                  </div>
+                  <div class="orderTotal">
+                    <span class="ordersWrapRow1Heading">Total</span>
+                    <span class="ordersWrapRow1Desc"><i class="fa fa-inr"></i>{{orderItem.totalAmount}}</span>
+                  </div>
+                  <div class="orderStatus">
+                    <span class="ordersWrapRow1Heading">Payment Status</span>
+                    <span class="ordersWrapRow1Desc">{{orderItem.paymentDetails.status[0].description}}</span>
+                  </div>
+                </div> 
+                </a>              
+                <div class="ordersWrapRow2" *ngIf="opened">
+                  <div class="orderItemRow clearfix" *ngFor="let product of orderItem.productDetails">
+                    <div class="orderItemRowLeft">
+                      <div class="itemImage"><a href=""><img [lazyLoad]="product.productInCart.minioObject_URL" alt=""></a></div>
+                      <div class="itemDescWrap">
+                        <div class="itemHeading"><a href="">Arthur Clive {{product.productInCart.productFor +' '+ product.productInCart.productType + ' ' + product.productInCart.productDesign}} </a></div>
+                        <div class="itemColour">Colour : {{product.productInCart.productColour}}</div>
+                        <div class="itemSize" *ngIf="product.productInCart.productSize != ''"> 
+                          <span>{{product.productInCart.productSize}}</span> 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="orderItemRowRight">
+                      <div class="itemUnitPriceAndQty">
+                        <i class="fa fa-inr"></i><span class="unitPrice">{{product.productInCart.productPrice}}</span> x <span class="totalQty">{{product.productInCart.productQuantity}}</span>
+                      </div>
+                      <div class="buyItAgainBtnWrap">
+                        <button class="buyItAgainBtn">Buy it again <span class="fa fa-shopping-bag"></span></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div> 

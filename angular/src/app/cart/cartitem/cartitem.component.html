@@ -1,0 +1,45 @@
+  <!-- Start item table-->
+  <div class="shoppingBagWrap">
+    <div class="bagLeft">
+      <div class="itemImageWrap"><a href=""><img [lazyLoad]="item.minioObject_URL" alt=""></a></div>
+      <div class="itemDescColourWrap">
+        <div class="itemDescColourWrapInner">
+          <a (click)="viewItem()" style="cursor: pointer"><span class="itemOderTabHeading">{{item.productFor + ' ' + item.productType}}</span></a>
+          <div class="itemColour">Colour : <span>{{item.productColour}}</span></div>
+          <div class="itemSize" title="Selected Size" *ngIf="item.productSize !=''">
+            <span>{{item.productSize}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bagRight">
+      <div class="itemQuantityPriceWrap">
+        <div class="itemQuantityPriceWrapInner">
+          <div class="itemQuantity">
+            <span class="BagTabHeading">Quantity</span>
+            <div class="itemQuantityEditWrap">
+              <div class="quantityInputWrap">
+                <span class="plus button" title="Add quantity" (click)="addOne()">+</span>
+                <span class="minus button" title="Remove quantity" (click)="reduceOne()">-</span>
+                <input type="number" class="" step="1" min="1" max="" name="quantity" value="1" title="Qty" size="4" pattern="[1-9]*" [(ngModel)]="item.productQuantity" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+          <div class="itemUnitPrice">
+            <span class="BagTabHeading">Unit Price</span>
+            <span class="BagTabPrice"><i class="fa fa-inr"></i>{{item.productPrice}}</span>
+          </div>
+          <div class="itemTotal">
+            <span class="BagTabHeading">Total Price</span>
+            <span class="BagTabPrice"><i class="fa fa-inr"></i>{{totalAmount()}}</span>
+          </div>
+          <button class="shoppingTabWishlistBtn" (click)="addToWishList()"><span class="fa fa-heart"></span> Add to Wish List</button>
+        </div>
+      </div>      
+      <!--<div class="wishListButton">
+                            <button type="submit" class="" (click)="addToWishList()">Add to WishList <span class="fa fa-heart-o"></span></button>
+      </div>-->
+    </div>
+    <div class="removeProduct" (click)="removeItem()">Remove <span>This Product</span></div>
+  </div>
+  <!-- End item table-->

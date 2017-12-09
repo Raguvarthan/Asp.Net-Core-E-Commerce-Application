@@ -1,0 +1,24 @@
+<div class="commonPageWrap">
+    <div class="wrapper">
+        <div class="wrapInner">
+
+            <h1 class="titleCommon">Verification</h1>
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <div class="acccountBg">
+                    <div class="regBox">
+                        <div class="textMsg">Please submit the Verification Code to verify your phone.</div>
+                        <div class="formWrap">
+                            <div class="formRow">
+                               <input type="text" name="VerificationCode" placeholder="Code*" class="error" ngModel required>
+                                <div class="error" *ngIf="f.controls.VerificationCode?.errors && f.controls.VerificationCode?.touched"><span class="error">Please enter the Verification Code</span></div>
+                            </div>
+                            <div class="formRow">
+                                <button type="submit" [disabled]="!f.valid" class="createAccount">Submit Verification Code</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

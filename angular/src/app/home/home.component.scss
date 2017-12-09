@@ -1,0 +1,179 @@
+/*styles for home content only
+.img-center {
+    display: block;
+    margin: 0 auto;
+}*/
+
+div /deep/ .swiper-button-prev  {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23202020'%2F%3E%3C%2Fsvg%3E") !important;
+}
+div /deep/ .swiper-button-next {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23202020'%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    right: 10%;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+.carousel-nav-list[_ngcontent-c8] {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5%;
+    margin: 0;
+    text-align: center;
+    opacity: 0;
+}
+
+.homeSliderDesktopBtnWrap {
+  width: 150px;
+  position: absolute;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 20px;
+}
+
+@media (max-width: 79.9375em) {
+  .homeSliderDesktopBtnWrap {
+    width: 130px;
+    bottom: 15px;
+  }
+}
+
+@media (max-width: 47.9375em) {
+  .homeSliderDesktopBtnWrap {
+    width: 100px;
+    bottom: 5px;
+  }
+}
+
+.homeSliderDesktopBtnWrap a.sliderBtn {
+  display: block;
+  padding: 8px 0;
+  border-radius: 3px;
+  background: #373737;
+  text-align: center;
+  font-family: "Roboto";
+  font-weight: 400;
+  color: #fff;
+  font-size: 16px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  -webkit-box-shadow: inset 0 0 0 0 #fc7700;
+          box-shadow: inset 0 0 0 0 #fc7700;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+@media (max-width: 79.9375em) {
+  .homeSliderDesktopBtnWrap a.sliderBtn {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 63.9375em) {
+  .homeSliderDesktopBtnWrap a.sliderBtn {
+    padding: 6px 0;
+  }
+}
+
+@media (max-width: 47.9375em) {
+  .homeSliderDesktopBtnWrap a.sliderBtn {
+    font-size: 11px;
+    font-size: 0.6875rem;
+  }
+}
+
+.homeSliderDesktopBtnWrap a.sliderBtn:first-of-type {
+  margin-bottom: 5px;
+}
+
+.homeSliderDesktopBtnWrap a.sliderBtn:hover {
+  -webkit-box-shadow: inset 0 312px 0 0 #fc7700;
+          box-shadow: inset 0 312px 0 0 #fc7700;
+  color: #fff;
+}

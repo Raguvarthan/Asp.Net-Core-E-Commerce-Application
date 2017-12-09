@@ -1,0 +1,17 @@
+@import 'mixin';
+
+.sizeBoxWrap {
+	div{
+		position: relative;
+
+		input[type=radio][disabled] + label {
+		  background: rgba(#cecece, 0.3) url("data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ic3dhdGNoLS1vdXRPZlN0b2NrSW5kaWNhdG9yIiB2aWV3Qm94PSIwIDAgNDAgNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIj48bGluZSB4MT0iMCIgeTE9IjQwIiB4Mj0iNDAiIHkyPSIwIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZT0iIzAwMDAwMCI+PC9saW5lPjwvc3ZnPg==");
+		  // color: #999;
+			cursor: default !important;
+		  &:hover{
+		  	color : #000;
+		  	cursor: default !important;
+		  }
+		}
+	}
+}

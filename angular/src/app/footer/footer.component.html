@@ -1,0 +1,91 @@
+<div class="footerwrapper">
+	<div class="wrapper">
+		<div class="wrapInner">
+			<div class="footerRow1 clearfix">
+				<div class="footerBlockWrap">
+					<h6 class="footerBlockHeading">Art in your inbox</h6>
+					<div class="footerBlockContent">
+						<p>Sign up for our newsletter and receive Latest product and offers. No spam promise.</p>
+						<div class="newsLetterWrap">
+							<form (ngSubmit)="onSubscribe(f)" #f="ngForm">
+								<input type="email" name="Email" placeholder="Email Address" ngModel pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+								<div class="error" *ngIf="f.controls.Email?.errors && f.controls.Email?.touched"><span class="error">Please enter a valid Email</span></div>
+								<input type="submit" [disabled]="!f.valid" class="createAccount" value="Subscribe">
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="footerBlockWrap">
+					<h6 class="footerBlockHeading">Customer Care</h6>
+					<div class="footerBlockContent">
+						<nav class="footerSupportNavigation">
+							<ul>
+								<li><a [routerLink]="['./about']">About Us</a></li>
+								<li><a [routerLink]="['./privacy']">Privacy Policy</a></li>
+								<li><a [routerLink]="['./delivery']">Delivery Policy</a></li>
+								<li><a [routerLink]="['./cancellation']">Cancellation &amp; Refund Policy</a></li>
+								<li><a [routerLink]="['./disclaimer']">Disclaimer Policy</a></li>
+								<li><a [routerLink]="['./terms']">Terms &amp; conditions</a></li>
+								<li><a [routerLink]="['./contact']">Contact Us</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<div class="footerBlockWrap">
+					<h6 class="footerBlockHeading">Instagram Feed</h6>
+					<div class="footerBlockContent">Instagram feed will be display here.</div>
+				</div>
+			</div>
+			<div class="footerRow2 clearfix">
+				<div class="footerBlockWrap">
+					<h6 class="footerBlockHeading">Shop Arthur Clive</h6>
+					<div class="footerBlockContent">
+						<nav class="footerMainNavgation">
+							<ul>
+								<li><a href="">Home</a></li>
+								<li><a [routerLink]="['/products/Women/Tshirt']">Women</a></li>
+								<li><a [routerLink]="['/products/Men/Tshirt']">Men</a></li>
+								<li><a [routerLink]="['/products/Girls/Tshirt']">Girls</a></li>
+								<li><a [routerLink]="['/products/Boys/Tshirt']">Boys</a></li>
+								<li><a [routerLink]="['/products/All/Art']">Art for Home</a></li>
+								<li><a href="">Artists</a></li>
+								<li><a href="">Gift Vouchers</a></li>
+								<li><a href="">Clearance</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<div class="footerBlockWrap">
+					<h6 class="footerBlockHeading">Safe and Secure payment</h6>
+					<div class="footerBlockContent">
+						<p>We accept the following</p>
+						<ul class="paymentCards">
+							<li><i class="fa fa-cc-mastercard"></i></li>
+							<li><i class="fa fa-cc-visa"></i></li>
+							<li><i class="fa fa-credit-card-alt"></i></li>
+						</ul>
+						<p><i class="fa fa-lock lockIcon"></i> SSL enabled safe and secure shopping</p>
+					</div>
+				</div>
+				<div class="footerBlockWrap">
+					<h6 class="footerBlockHeading">Connect With Us</h6>
+					<div class="footerBlockContent">
+						<ul class="socialIcons">
+							<li><a href="https://www.youtube.com/channel/UCOwYo7s53HLHDAa-1T9qjXQ" target="_blank"><i class="fa fa-youtube-square" target="_blank"></i></a></li>
+							<li><a href="https://www.facebook.com/artwearindia" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
+							<li><a href="https://twitter.com/ArtwearClive"><i class="fa fa-twitter-square" target="_blank"></i></a></li>
+							<li><a href=""><i class="fa fa-google-plus-square"></i></a></li>
+							<li><a href="https://www.instagram.com/arthurcliveofficial/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+							<li><a href="https://www.pinterest.co.uk/artwearin/"><i class="fa fa-pinterest-square" target="_blank"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="copyright">
+	<div class="wrapper">
+		<div class="wrapInner">&#169; Arthur Clive</div>
+	</div>
+</div>

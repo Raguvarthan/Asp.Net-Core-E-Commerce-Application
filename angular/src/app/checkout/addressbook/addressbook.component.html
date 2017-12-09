@@ -1,0 +1,11 @@
+<div class="addressBookWrapper">
+    <div class="addressBookWrap">
+        <h3 class="headingAddressBook">Address Book</h3>
+        <div class="addNewAddressWrap"><a (click)="addNewAddress()" scrollTo [scrollYTarget]="offsetNewAddress" style="cursor:pointer"><span class="fa fa-plus-circle"></span>Add New Address</a></div>
+        <div class="addressBookWrapInner">
+            <div class="addressBookTab">
+            <addressitem *ngFor="let address of addressService?.addressItems.listOfAddress; let i = index" [itemIndex]="i" [address]="address"></addressitem>
+            </div>
+        </div>
+    </div>
+</div>

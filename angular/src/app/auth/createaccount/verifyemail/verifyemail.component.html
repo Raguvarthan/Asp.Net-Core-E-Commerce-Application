@@ -1,0 +1,11 @@
+<div class="commonPageWrap">
+    <div class="wrapper">
+        <div class="wrapInner" *ngIf="update == 'no'">
+            <h3 class="titleCommon">Account verified. Happy Shopping!</h3>
+        </div>
+        <div class="wrapInner" *ngIf="update == 'yes'">
+            <h3 class="titleCommon">Account verified.</h3>
+            <button type="submit"  class="createAccount" (click)="updatePassword()">Update Password</button>
+        </div>
+    </div>
+</div>

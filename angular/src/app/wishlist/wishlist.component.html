@@ -1,0 +1,14 @@
+<div class="commonPageWrap">
+    <div class="wrapper">
+        <div class="wrapInner">
+            <h1 class="titleCommon">WishList</h1>            
+            <div class="shoppingBgcommon">
+                <div class="shoppingBagWrapper clearfix">
+                    <div class="shoppingBagWrapperInnerLeft wishlistWrap">
+                    <listitem *ngFor="let wishItem of wishListService?.wishListItems?.listOfProducts; let i = index" [itemIndex]="i" [item]="wishItem"></listitem>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,386 @@
+.ordersMainWrap {
+  position: relative;
+  margin-bottom: 30px;
+  border: 1px solid #cecece;
+}
+
+.ordersMainWrap .ordersWrapRow1 {
+  position: relative;
+  background: rgba(206, 206, 206, 0.2);
+  padding: 20px 20px;
+  border-bottom: 1px solid #cecece;
+}
+
+@media (max-width: 47.9375em) {
+  .ordersMainWrap .ordersWrapRow1 {
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 29.9375em) {
+  .ordersMainWrap .ordersWrapRow1 {
+    padding: 15px 20px 60px;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow1 .ordersWrapRow1Heading {
+  font-size: 14px;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: #2a2c2e;
+  font-weight: 700;
+  display: block;
+  padding-bottom: 5px;
+}
+
+@media (max-width: 29.9375em) {
+  .ordersMainWrap .ordersWrapRow1 .ordersWrapRow1Heading {
+    font-size: 13px;
+    font-size: 0.8125rem;
+    padding-bottom: 2px;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow1 .ordersWrapRow1Desc {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #2a2c2e;
+  display: block;
+}
+
+@media (max-width: 63.9375em) {
+  .ordersMainWrap .ordersWrapRow1 .ordersWrapRow1Desc {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow1 .orderNumberBtnWrap {
+  width: 40%;
+  float: left;
+}
+
+@media (max-width: 47.9375em) {
+  .ordersMainWrap .ordersWrapRow1 .orderNumberBtnWrap {
+    width: 70%;
+    padding-bottom: 15px;
+  }
+}
+
+@media (max-width: 29.9375em) {
+  .ordersMainWrap .ordersWrapRow1 .orderNumberBtnWrap {
+    width: 60%;
+    padding-bottom: 10px;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow1 .orderNumberBtnWrap .orderNumberBtnInner {
+  padding-top: 4px;
+}
+
+.ordersMainWrap .ordersWrapRow1 .orderNumberBtnWrap .orderNumberBtnInner .orderNumber {
+  float: left;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #2a2c2e;
+  padding-right: 15px;
+  margin-right: 15px;
+  border-right: 1px solid #999;
+}
+
+@media (max-width: 63.9375em) {
+  .ordersMainWrap .ordersWrapRow1 .orderNumberBtnWrap .orderNumberBtnInner .orderNumber {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 29.9375em) {
+  .ordersMainWrap .ordersWrapRow1 .orderNumberBtnWrap .orderNumberBtnInner .orderNumber {
+    padding-left: 0;
+    margin-right: 0;
+    border-right: 1px solid transparent;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow1 .orderNumberBtnWrap .orderNumberBtnInner a.orderDetailsAnchor {
+  position: relative;
+  float: left;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1;
+  text-decoration: none;
+  color: #2a2c2e;
+  padding: 0 0 1px;
+  text-decoration: none;
+  border-bottom: 1px solid #c1c1c1;
+}
+
+@media (max-width: 63.9375em) {
+  .ordersMainWrap .ordersWrapRow1 .orderNumberBtnWrap .orderNumberBtnInner a.orderDetailsAnchor {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 29.9375em) {
+  .ordersMainWrap .ordersWrapRow1 .orderNumberBtnWrap .orderNumberBtnInner a.orderDetailsAnchor {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: black;
+    padding: 7px 10px;
+    font-size: 11px;
+    font-size: 0.6875rem;
+    color: #fff;
+    text-transform: uppercase;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow1 .orderNumberBtnWrap .orderNumberBtnInner a.orderDetailsAnchor:hover {
+  border-bottom: 1px solid #000;
+}
+
+.ordersMainWrap .ordersWrapRow1 .orderPlaced {
+  width: 20%;
+  float: left;
+  padding-right: 5px;
+}
+
+@media (max-width: 47.9375em) {
+  .ordersMainWrap .ordersWrapRow1 .orderPlaced {
+    width: 30%;
+    padding-bottom: 15px;
+  }
+}
+
+@media (max-width: 29.9375em) {
+  .ordersMainWrap .ordersWrapRow1 .orderPlaced {
+    width: 40%;
+    padding: 0 0 10px;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow1 .orderTotal {
+  width: 20%;
+  float: left;
+  padding-right: 5px;
+}
+
+@media (max-width: 47.9375em) {
+  .ordersMainWrap .ordersWrapRow1 .orderTotal {
+    width: 70%;
+  }
+}
+
+@media (max-width: 29.9375em) {
+  .ordersMainWrap .ordersWrapRow1 .orderTotal {
+    width: 60%;
+    padding: 0 0 10px;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow1 .orderStatus {
+  width: 20%;
+  float: left;
+  padding-right: 5px;
+}
+
+@media (max-width: 47.9375em) {
+  .ordersMainWrap .ordersWrapRow1 .orderStatus {
+    width: 30%;
+  }
+}
+
+@media (max-width: 29.9375em) {
+  .ordersMainWrap .ordersWrapRow1 .orderStatus {
+    width: 40%;
+    padding: 0;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow2 {
+  position: relative;
+}
+
+.ordersMainWrap .ordersWrapRow2 .orderItemRow {
+  padding: 30px 20px;
+  border-bottom: 1px solid #cecece;
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+.ordersMainWrap .ordersWrapRow2 .orderItemRow:last-of-type {
+  border-bottom: none;
+}
+
+.ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowLeft {
+  width: 60%;
+  float: left;
+}
+
+@media (max-width: 47.9375em) {
+  .ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowLeft {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowLeft .itemImage {
+  width: 24%;
+  float: left;
+  text-align: center !important;
+}
+
+@media (max-width: 29.9375em) {
+  .ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowLeft .itemImage {
+    width: 35%;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowLeft .itemDescWrap {
+  width: 76%;
+  float: left;
+  padding: 20px;
+}
+
+@media (max-width: 79.9375em) {
+  .ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowLeft .itemDescWrap {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 29.9375em) {
+  .ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowLeft .itemDescWrap {
+    width: 65%;
+    padding: 0 0 0 10px;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowLeft .itemDescWrap .itemColour {
+  font-size: 14px;
+  padding: 12px 0;
+}
+
+@media (max-width: 79.9375em) {
+  .ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowLeft .itemDescWrap .itemColour {
+    padding: 10px 0;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowLeft .itemDescWrap .itemSize {
+  position: relative;
+}
+
+.ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowLeft .itemDescWrap .itemSize span {
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding-top: 10px;
+  border-radius: 50%;
+  background: #fc7700;
+  font-size: 14px;
+  font-size: 0.875rem;
+  color: #fff;
+  text-align: center;
+}
+
+@media (max-width: 47.9375em) {
+  .ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowLeft .itemDescWrap .itemSize span {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    font-size: 0.75rem;
+    padding-top: 7px;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowRight {
+  width: 40%;
+  float: right;
+}
+
+@media (max-width: 47.9375em) {
+  .ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowRight {
+    width: 100%;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowRight .itemUnitPriceAndQty {
+  position: relative;
+  width: 50%;
+  float: left;
+  padding-top: 20px;
+}
+
+@media (max-width: 79.9375em) {
+  .ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowRight .itemUnitPriceAndQty {
+    padding: 0;
+  }
+}
+
+@media (max-width: 47.9375em) {
+  .ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowRight .itemUnitPriceAndQty {
+    width: 24%;
+    text-align: center;
+    padding-top: 3px;
+  }
+}
+
+@media (max-width: 29.9375em) {
+  .ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowRight .itemUnitPriceAndQty {
+    width: 35%;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowRight .buyItAgainBtnWrap {
+  width: 50%;
+  float: left;
+  padding-top: 20px;
+}
+
+@media (max-width: 79.9375em) {
+  .ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowRight .buyItAgainBtnWrap {
+    padding: 0;
+  }
+}
+
+@media (max-width: 47.9375em) {
+  .ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowRight .buyItAgainBtnWrap {
+    width: 76%;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 29.9375em) {
+  .ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowRight .buyItAgainBtnWrap {
+    width: 65%;
+    padding: 0 0 0 10px;
+  }
+}
+
+.ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowRight .buyItAgainBtnWrap .buyItAgainBtn {
+  position: relative;
+  max-width: 150px;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  text-align: center;
+  font-size: 12px;
+  font-size: 0.75rem;
+  font-family: 'Roboto';
+  color: #fff;
+  text-transform: uppercase;
+  display: block;
+  background: black;
+  padding: 7px 8px;
+}
+
+.ordersMainWrap .ordersWrapRow2 .orderItemRow .orderItemRowRight .buyItAgainBtnWrap .buyItAgainBtn span {
+  font-size: 14px;
+  font-size: 0.875rem;
+  margin-left: 5px;
+  color: #fc7700;
+}

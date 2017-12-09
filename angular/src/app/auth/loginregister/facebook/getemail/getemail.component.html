@@ -1,0 +1,27 @@
+<div class="commonPageWrap">
+    <div class="wrapper">
+        <div class="wrapInner">
+            <h1 class="titleCommon" style="font-size: 1.5rem">We couldn't get your email from FaceBook Login, please provide your email for future communications.</h1>
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <div class="acccountBg">
+                    <div class="regBox">
+                        <div class="formWrap">   
+                            <div class="formRow">
+                                <div class="textMsg">Please enter your Email.</div>                         
+                                <input type="email" name="email" placeholder="Email Address*" ngModel required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+                                <div class="error" *ngIf="f.controls.email?.errors && f.controls.email?.touched"><span class="error">Please enter a valid Email</span></div>
+                            </div>                                                        
+                            <div class="formRow">
+                                <div class="textMsg">Please confirm the Email.</div>                         
+                                <input type="email" name="confirmEmail" placeholder="Email Address*" ngModel required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+                                <div class="error" *ngIf="(f.value.confirmEmail != f.value.email) && f.controls.confirmEmail?.touched"><span class="error">Email doesn't match.</span></div>
+                            </div>                            <div class="formRow">
+                                <button type="submit" [disabled]="!f.valid || (f.value.confirmEmail != f.value.email)" class="createAccount">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+@import 'mixin';
+
+.contactusBgWrap{
+	position: relative;
+	// padding: 50px 50px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	.contactTab{
+		position: relative;
+		flex-basis: 30%;
+		text-align: center;
+		background: rgba(#c6c6c6, 0.1);
+		box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.26);
+		text-align: center;
+		padding: 30px 20px;
+		line-height: 1.8;
+		@include font-size(16px);
+		color: #2a2c2e;
+
+		@include MQ(767) {
+			flex-basis:100%;
+			padding: 20px 20px;
+			margin-bottom: 20px;
+		}
+
+		h2{
+			@include font-size(18px);
+			font-weight: 700;
+			text-transform: uppercase;
+			color: #2a2c2e;
+			margin-bottom:15px;
+
+			@include MQ(767) {
+				@include font-size(16px);
+			}
+		}
+		a{
+			text-decoration: none;
+			padding-bottom: 2px;
+			border-bottom: 1px solid transparent;
+
+			&.telePhoneNumber{
+				text-decoration: none !important;
+				padding-bottom: 0 !important;
+				border-bottom: none !important;
+			}
+
+			&:hover{
+				border-bottom: 1px solid #2a2c2e;
+			}
+
+		}
+		span.dpBlock{
+			@include MQ(1023){
+				display: block;
+				// padding-bottom: 5px;
+			}
+		}
+		p{
+			@include MQ(1023){
+				padding-bottom: 12px;
+			}
+			
+		}
+		.socialIconsContactus{
+			list-style: none;
+			// width: auto;
+
+			@include MQ(1279) {
+				width: 130px;
+				margin: auto;
+			}
+			@include MQ(767) {
+				width: auto;
+			}
+
+			li{
+				width: 40px;
+				list-style: none;
+				display: inline-block;
+				// margin: 2px;
+
+				i{
+					font-size: 40px;
+					color: #999;
+					color: #2a2c2e;
+				}
+			}
+		}
+
+		.contactTabContent{
+
+			@include absolutecenter(both);
+			width: 100%;
+			padding: 20px;
+
+			@include MQ(767) {
+				@include absolutecenter(none);
+				padding: 0;
+			}
+		}
+	}
+}

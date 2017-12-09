@@ -1,0 +1,61 @@
+//Font Size
+@mixin font-size($size) {
+    font-size:$size;
+ 	font-size: ($size / 16px) * 1rem;
+}
+
+//Asolute Center
+@mixin absolutecenter($axis: "both"){
+  position:absolute;
+  @if $axis == "y"{
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @if $axis == "x"{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @if $axis == "both"{
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+}
+
+
+//Media queries same as Arthur Clive Style
+
+@mixin MQ($point) {
+
+  @if $point == 1455 { // MQ 1455
+    @media (max-width: 90.9375em) { @content; }
+  }
+  @else if $point == 1279 { // MQ < 1280
+    @media (max-width: 63.9375em) { @content; }
+  }
+  @else if $point == 1023 { // MQ < 1024
+    @media (max-width: 63.9375em)  { @content; }
+  }
+  @else if $point == 1025 { // MQ > 1024
+    @media (min-width: 64.0625em)  { @content; }
+  }
+  @else if $point == 850 { // MQ 850
+    @media (max-width: 53.125em)  { @content; }
+  }
+  @else if $point == 767 { // MQ < 768
+    @media (max-width: 47.9375em)  { @content; }
+  }
+  @else if $point == 639 { // MQ < 640
+    @media (max-width: 39.9375em)  { @content; }
+  }
+  @else if $point == 599 { // MQ < 600
+    @media (max-width: 37.4375em)  { @content; }
+  }
+  @else if $point == 539 { // MQ < 540
+    @media (max-width: 33.6875em)  { @content; }
+  }
+  @else if $point == 479 { // MQ < 480
+    @media (max-width: 29.9375em)  { @content; }
+  }
+  
+}

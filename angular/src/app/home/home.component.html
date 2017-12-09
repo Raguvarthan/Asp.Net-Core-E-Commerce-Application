@@ -1,0 +1,103 @@
+<div class="sliderWrap">
+	<div id="sliderDesktop" class="flexslider">
+		<ul class="slides">
+			<swiper [config]="swipeconfig">
+				<div class="homeSlideContent">
+					<img [src]="imageSources[0]" alt="">
+					<div class="homeSliderDesktopBtnWrap">
+					<a [routerLink]="['/products/Men/Tshirt']" class="sliderBtn">MEN</a>
+					<a [routerLink]="['/products/Women/Tshirt']" class="sliderBtn">WOMEN</a>
+					</div>
+				</div>
+				<div class="homeSlideContent">
+					<img [src]="imageSources[1]" alt="">
+					<div class="homeSliderDesktopBtnWrap">
+					<a [routerLink]="['/products/Men/Tshirt']" class="sliderBtn">MEN</a>
+					<a [routerLink]="['/products/Women/Tshirt']" class="sliderBtn">WOMEN</a>
+					</div>
+				</div>
+				<div class="homeSlideContent">
+					<img [src]="imageSources[2]" alt="">
+					<div class="homeSliderDesktopBtnWrap">
+					<a [routerLink]="['/products/Men/Tshirt']" class="sliderBtn">MEN</a>
+					<a [routerLink]="['/products/Women/Tshirt']" class="sliderBtn">WOMEN</a>
+					</div>
+                </div>
+				<div class="homeSlideContent">
+					<img [src]="imageSources[3]" alt="">
+					<div class="homeSliderDesktopBtnWrap">
+					<a [routerLink]="['/products/Men/Tshirt']" class="sliderBtn">MEN</a>
+					<a [routerLink]="['/products/Women/Tshirt']" class="sliderBtn">WOMEN</a>
+					</div>
+				</div>
+				<div class="homeSlideContent">
+					<img [src]="imageSources[4]" alt="">
+					<div class="homeSliderDesktopBtnWrap">
+					<a [routerLink]="['/products/Boys/Tshirt']" class="sliderBtn">BOYS</a>
+					<a [routerLink]="['/products/Girls/Tshirt']" class="sliderBtn">GIRLS</a>
+					</div>
+				</div>
+				<div class="homeSlideContent">
+					<img [src]="imageSources[5]" alt="">
+					<div class="homeSliderDesktopBtnWrap">
+					<a [routerLink]="['/products/Boys/Tshirt']" class="sliderBtn">BOYS</a>
+					<a [routerLink]="['/products/Girls/Tshirt']" class="sliderBtn">GIRS</a>
+					</div>
+				</div>
+
+			</swiper>
+		</ul>
+	</div>
+	<div id="sliderMobile" class="flexslider">
+		<ul class="slides">
+			<swiper [config]="mobileconfig">
+				<li>
+					<div class="homeSlideContent">
+						<img [src]="mobileImageSources[0]" alt="">
+						<a [routerLink]="['/products/Men/Tshirt']"><span class="shopBtnHomeSlide">MEN</span>
+					</a>
+					</div>
+				</li>
+				<li>
+
+					<div class="homeSlideContent">
+						<img [src]="mobileImageSources[1]" alt="">
+						<a [routerLink]="['/products/Women/Tshirt']">
+							<span class="shopBtnHomeSlide">WOMEN</span>
+					</a>
+					</div>
+				</li>
+				<li>
+					<div class="homeSlideContent">
+						<img [src]="mobileImageSources[2]" alt="">
+						<a [routerLink]="['/products/Women/Tshirt']">
+							<span class="shopBtnHomeSlide">BOYS</span>				
+					</a></div>
+				</li>
+				<li>
+					<div class="homeSlideContent">
+						<img [src]="mobileImageSources[3]" alt="">
+						<a [routerLink]="['/products/Boys/Tshirt']">
+							<span class="shopBtnHomeSlide">GIRLS</span>											
+					</a>
+					</div>
+				</li>
+			</swiper>
+		</ul>
+	</div>
+</div>
+<div class="homePageWrap">
+	<div class="wrapper">
+		<div class="wrapInner">
+			<h1 class="titleCommon">Explore Arthur Clive Collections <span>Authentic Artwear collection designed in London</span></h1>
+		</div>
+		<div class="categoriesHomeWrapOuter clearfix">
+			<category *ngFor="let categoryitem of category" [category]="categoryitem"></category>
+		</div>
+	</div>
+</div>
+<!--<div id="myModal" class="modal" [ngStyle]="{ 'display': imgStyle}">
+  <span class="close" (click)="onCloseImg()">&times;</span>
+  <img class="modal-content" id="img01" src="../../assets/img/beta.png">
+  <div id="caption"></div>
+</div>-->

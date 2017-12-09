@@ -1,0 +1,13 @@
+<div *ngIf="indexNumber < 3">
+<a [routerLink]="['../../variants', design]" (click)="DesignClicked()">
+<!--<a (click)="DesignClicked()">-->
+<div class="itemsWrapInner">
+    <a href="#" class="itemAnchor">
+                                <img [src]="ImgUrl" alt="">
+							<h2>{{design}}</h2><br>
+							<span class="itemPrice">INR {{Price}}</span>
+						</a>
+    <a href="" class="addToBagBtn">Add to Bag <span class="iconShopBtn-Bag fa fa-shopping-bag"></span></a>
+</div>
+</a>
+</div>

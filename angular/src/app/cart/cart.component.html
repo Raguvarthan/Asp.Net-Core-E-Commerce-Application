@@ -1,0 +1,41 @@
+<div class="commonPageWrap">
+    <div class="wrapper">
+        <div class="wrapInner">
+            <h1 class="titleCommon">Shopping Bag</h1>            
+            <div class="shoppingBgcommon">
+                <div class="shoppingBagWrapper clearfix">
+                    <div class="shoppingBagWrapperInnerLeft">
+                    <cartitem *ngFor="let cartItem of cartService?.cartItems.listOfProducts; let i = index" [itemIndex]="i" [item]="cartItem"></cartitem>
+                    </div>
+                    <div class="shoppingBagWrapperInnerRight">
+                        <!-- STart Coupon Tab -->
+                        <div class="couponTab">
+                            <h2 class="couponHeading">Have a Coupon?</h2>
+                            <div>
+                                <!-- <p>Sign in to use account linked coupons</p> -->
+                                <p>Enter your coupon code</p>
+                                <p><input type="text"></p>
+                                <button>Apply Coupon</button>
+                            </div>
+                        </div>
+                        <!-- End Coupon Tab -->
+
+                        <!-- Start Order Tab -->
+                        <order></order>
+                        <!-- End Order Tab -->
+
+                        <!-- Start Checkout Button -->
+                        <button class="orderCheckout" (click)="checkOut()">Secured Checkout <span class="fa fa-arrow-circle-right"></span></button>
+                        <!-- End Checkout Button -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--<button class="checkout">
+        Checkout
+      </button>
+
+        <div class="cartTotal textMsg">Cart Total:{{getCartTotal()}}</div>-->
+    </div>
+</div>

@@ -1,0 +1,78 @@
+.accountWrapAfterlogin {
+  position: relative;
+  padding: 50px;
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.26);
+          box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.26);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (max-width: 53.125em) {
+  .accountWrapAfterlogin {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 37.4375em) {
+  .accountWrapAfterlogin {
+    padding: 30px 30px;
+  }
+}
+
+.accountOptionTab {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  border: 1px solid #d2d2d2;
+  padding: 20px 20px 30px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #cecece;
+}
+
+@media (max-width: 53.125em) {
+  .accountOptionTab {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    margin-bottom: 20px;
+  }
+  .accountOptionTab:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.accountOptionTab:hover {
+  background: rgba(210, 210, 210, 0.2);
+  text-decoration: none !important;
+}
+
+.accountOptionTab .accountOptionTabImg {
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin: 0 auto 5px;
+}
+
+.accountOptionTab .accountOptionTabImg i {
+  font-size: 42px;
+  font-size: 2.625rem;
+  color: rgba(255, 146, 0, 0.8);
+}
+
+.accountOptionTab p {
+  font-size: 18px;
+  font-size: 1.125rem;
+  color: #2a2c2e;
+}
+
+.accountOptionTab p small {
+  font-size: 14px;
+  font-size: 0.875rem;
+  display: block;
+  color: #666;
+}

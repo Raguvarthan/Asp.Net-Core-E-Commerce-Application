@@ -1,0 +1,1352 @@
+swagger: '2.0'
+info:
+  description: Arthur Clive Web Api
+  version: 1.0.0
+  title: Arthur Clive Swagger
+  contact:
+    email: raguvarthan.n@turingminds.com
+host: arhturclive.swagger.io
+basePath: /v1
+tags:
+  - name: ArthurClive
+    description: 'Web Api calls for Products, Categories, Cart, Wishlist ,Orders and Users'
+  - name: ProductController
+    description: 'Product Insert, Get and Delete'
+  - name: CategoryController
+    description: 'Category Insert, Get and Delete'
+  - name: SubCategoryController
+    description: SubCategory Get
+  - name: UserController
+    description: >-
+      Web api call for Adding user details, Adding products to cart and
+      wishlist.
+  - name: User
+    description: 'User Insert, GetAllUser and GetSingleUser.'
+  - name: Cart
+    description: User RefreshCart and GetProductsInCart.
+  - name: WishList
+    description: User RefreshWishList and GetProductsInWishList.
+  - name: ArthorizedServer
+    description: Web api calls for authentication and authorization of user
+  - name: AuthController
+    description: 'Register, Login, Forgot Password, Change Password and Deactivate Account'
+  - name: Register
+  - name: Login
+  - name: SocialLogin
+  - name: ForgotPassword
+  - name: ChangePassword
+  - name: Deactivate Account
+  - name: AdminContoller
+    description: 'Subscribe user, Unscubcribe user and Send message to subscribed users'
+  - name: TokenContoller
+    description: Get JWT
+schemes:
+  - http
+paths:
+  /api/product:
+    get:
+      tags:
+        - ProductController
+      operationId: getProducts
+      produces:
+        - application/xml
+        - application/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ProductDetails'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+    post:
+      tags:
+        - ProductController
+      operationId: insertProduct
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Object that need to be added to the DB
+          required: true
+          schema:
+            $ref: '#/definitions/Product'
+      responses:
+        '200':
+          description: Inserted
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+  '/api/product/{productSKU}':
+    delete:
+      tags:
+        - ProductController
+      operationId: deleteProduct
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: productSKU
+          in: path
+          description: SKU of the product that needs to be deleted
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Deleted
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '404':
+          description: Product Not Found
+          schema:
+            $ref: '#/definitions/ResponseData'
+  /api/category:
+    get:
+      tags:
+        - CategoryController
+      operationId: getCategories
+      produces:
+        - application/xml
+        - application/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/CategoryDetails'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+    post:
+      tags:
+        - CategoryController
+      operationId: insertCategory
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: product
+          description: Object that need to be added to the DB
+          required: true
+          schema:
+            $ref: '#/definitions/Category'
+      responses:
+        '200':
+          description: Inserted
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+  '/api/category/{productFor}/{productType}':
+    delete:
+      tags:
+        - CategoryController
+      operationId: deleteCategory
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: productFor
+          in: path
+          description: productFor of the category that needs to be deleted
+          required: true
+          type: string
+        - name: productType
+          in: path
+          description: productType of the category that needs to be deleted
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Deleted
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '404':
+          description: Product Not Found
+          schema:
+            $ref: '#/definitions/ResponseData'
+  '/api/subcategory/{productFor}/{productType}':
+    get:
+      tags:
+        - SubCategoryController
+      operationId: getSubCategories
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: productFor
+          in: path
+          description: productFor of the subcategory that needs to be filtered
+          required: true
+          type: string
+        - name: productType
+          in: path
+          description: productType of the subcategory that needs to be filtered
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ProductDetails'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+  '/api/user/userinfo/{username}':
+    post:
+      tags:
+        - User
+      operationId: postUserinfo
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: path
+          name: username
+          description: UserName of user whoes address need to be added
+          required: true
+          type: string
+        - in: body
+          name: data
+          description: Object that need to be added to the DB
+          required: true
+          schema:
+            $ref: '#/definitions/UserInfoList'
+      responses:
+        '200':
+          description: Inserted
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+    get:
+      tags:
+        - User
+      operationId: getDefaultAddress
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: username
+          in: path
+          description: UserName of uswer whos default address details needs to be taken.
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ResponceData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+  '/api/user/userinfo/address/{username}':
+    get:
+      tags:
+        - User
+      operationId: getAllAddress
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: username
+          in: path
+          description: UserName of uswer whos address details needs to be taken.
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ResponceData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+  '/api/user/cart/{username}':
+    post:
+      tags:
+        - Cart
+      operationId: insertProductToCart
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: path
+          name: username
+          description: Username of the user
+          required: true
+          type: string
+        - in: body
+          name: cartProduct
+          description: Object that need to be added to the DB
+          required: true
+          schema:
+            $ref: '#/definitions/CartList'
+      responses:
+        '200':
+          description: Inserted
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+    get:
+      tags:
+        - Cart
+      summary: Get all the products in cart
+      description: ''
+      operationId: getProductsInCart
+      produces:
+        - application/xml
+        - application/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/CartList'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+  '/api/user/wishlist/{username}':
+    post:
+      tags:
+        - WishList
+      operationId: insertProductToWishList
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: path
+          name: username
+          description: Username of the user
+          required: true
+          type: string
+        - in: body
+          name: wishlistProduct
+          description: Object that need to be added to the DB
+          required: true
+          schema:
+            $ref: '#/definitions/WishlistList'
+      responses:
+        '200':
+          description: Inserted
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+    get:
+      tags:
+        - WishList
+      operationId: getProductsInWishlist
+      produces:
+        - application/xml
+        - application/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/WishlistList'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+  /api/auth/register:
+    post:
+      tags:
+        - Register
+      operationId: register
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Details of user who needs to be registered
+          required: true
+          schema:
+            $ref: '#/definitions/RegisterModel'
+      responses:
+        '200':
+          description: User Registered
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '401':
+          description: User Already Registered
+          schema:
+            $ref: '#/definitions/ResponseData'
+  '/api/auth/register/verification/{username}/{otp}':
+    get:
+      tags:
+        - Register
+      operationId: registerVerification
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: path
+          name: username
+          description: Username of the user
+          required: true
+          type: string
+        - in: path
+          name: otp
+          description: OTP sent to the users phone number or email for verification
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: Details of user who's registration needs to be verified'
+          required: true
+          schema:
+            $ref: '#/definitions/VerificationModel'
+      responses:
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '401':
+          description: OTP Expired
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '402':
+          description: OTP Invalid
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '404':
+          description: User Not Found
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '909':
+          description: can not add token to database
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '999':
+          description: Logged In
+          schema:
+            $ref: '#/definitions/ResponseData'
+  /api/auth/login:
+    post:
+      tags:
+        - Login
+      summary: Login with credentials
+      description: ''
+      operationId: login
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Login credentials of registered user
+          required: true
+          schema:
+            $ref: '#/definitions/LoginModel'
+      responses:
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '401':
+          description: Invalid User Infomation & response
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '402':
+          description: User Not Verified
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '404':
+          description: User Not Found
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '909':
+          description: can not add token to database
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '999':
+          description: Logged In
+          schema:
+            $ref: '#/definitions/ResponseData'
+  /api/auth/externallogin/google:
+    post:
+      tags:
+        - SocialLogin
+      summary: Login with Google
+      description: ''
+      operationId: googleLogin
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: 'Token, Email and ID of the user'
+          required: true
+          schema:
+            $ref: '#/definitions/SocialLoginModel'
+      responses:
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '401':
+          description: Token is empty
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '402':
+          description: Invalid Token
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '404':
+          description: ID mismatch
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '909':
+          description: can not add token to database
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '999':
+          description: Logged In
+          schema:
+            $ref: '#/definitions/ResponseData'
+  /api/auth/externallogin/facebook:
+    post:
+      tags:
+        - SocialLogin
+      summary: Login with Facebook
+      description: ''
+      operationId: facebookLogin
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: 'Token, Email and ID of the user'
+          required: true
+          schema:
+            $ref: '#/definitions/SocialLoginModel'
+      responses:
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '401':
+          description: Token is empty
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '402':
+          description: Invalid Token
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '404':
+          description: ID mismatch
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '909':
+          description: can not add token to database
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '999':
+          description: Logged In
+          schema:
+            $ref: '#/definitions/ResponseData'
+  /api/auth/forgotpassword:
+    post:
+      tags:
+        - ForgotPassword
+      summary: ''
+      description: ''
+      operationId: forgotpassword
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Details of user who has forgotted password
+          required: true
+          schema:
+            $ref: '#/definitions/ForgotPassword'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '404':
+          description: User Not Found
+          schema:
+            $ref: '#/definitions/ResponseData'
+  '/api/auth/forgotpassword/verification/{username}/{otp}':
+    get:
+      tags:
+        - ForgotPassword
+      summary: ''
+      description: ''
+      operationId: forgotpasswordVerification
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: path
+          name: username
+          description: Username of the user
+          required: true
+          type: string
+        - in: path
+          name: otp
+          description: OTP sent to the users phone number or email for verification
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: Details of user who forgot password and needs to get verfied
+          required: true
+          schema:
+            $ref: '#/definitions/VerificationModel'
+      responses:
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '401':
+          description: Invalid OTP
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '402':
+          description: OTP Expired
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '404':
+          description: User Not Found
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '909':
+          description: can not add token to database
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '999':
+          description: Logged In
+          schema:
+            $ref: '#/definitions/ResponseData'
+  /api/auth/forgotpassword/changepassword:
+    post:
+      tags:
+        - ForgotPassword
+      summary: ''
+      description: ''
+      operationId: forgotpasswordChangePassword
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Details of user who ned to changepassword
+          required: true
+          schema:
+            $ref: '#/definitions/LoginModel'
+      responses:
+        '200':
+          description: Password Changed Successfully
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '401':
+          description: User Not Verified to Change Password
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '404':
+          description: User Not Found
+          schema:
+            $ref: '#/definitions/ResponseData'
+  /api/auth/changepassword:
+    post:
+      tags:
+        - ChangePassword
+      summary: ''
+      description: ''
+      operationId: changepassword
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Details of user who needs to changepassword
+          required: true
+          schema:
+            $ref: '#/definitions/ChangePasswordModel'
+      responses:
+        '200':
+          description: Password Changed Successfully
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '401':
+          description: Invalid User Infomation & + response
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '404':
+          description: User Not Found
+          schema:
+            $ref: '#/definitions/ResponseData'
+  /api/auth/deactivateaccount:
+    post:
+      tags:
+        - Deactivate Account
+      operationId: deactivateAccount
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Details of user who needs to get deactivated
+          required: true
+          schema:
+            $ref: '#/definitions/LoginModel'
+      responses:
+        '200':
+          description: User Deactivated
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '401':
+          description: Invalid UserName or Password
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '404':
+          description: User Not Found
+          schema:
+            $ref: '#/definitions/ResponseData'
+  '/api/admin/subscribe/{username}':
+    post:
+      tags:
+        - AdminContoller
+      operationId: subscribe
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: path
+          name: username
+          description: UserName of user who needs to subscribe
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Subscribed Succesfully
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '401':
+          description: User Already Subscribed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '402':
+          description: UserName connot be empty
+          schema:
+            $ref: '#/definitions/ResponseData'
+  '/api/admin/unsubscribe/{username}':
+    post:
+      tags:
+        - AdminContoller
+      operationId: unsubscribe
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: path
+          name: username
+          description: UserName of user who needs to unsubscribe
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Unsubscribed Succesfully
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '401':
+          description: No user found
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '402':
+          description: UserName connot be empty
+          schema:
+            $ref: '#/definitions/ResponseData'
+  /api/admin/sendmessage:
+    post:
+      tags:
+        - AdminContoller
+      operationId: publicPost
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: message
+          description: Message that needs to be sent to the subscribed users
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Email sent to all subscribed users
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '400':
+          description: Failed
+          schema:
+            $ref: '#/definitions/ResponseData'
+        '401':
+          description: There are no subscribed users
+          schema:
+            $ref: '#/definitions/ResponseData'
+  /api/token/auth:
+    get:
+      tags:
+        - TokenController
+      operationId: getJWT
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          description: Parameters to get JWT Token
+          required: true
+          schema:
+            $ref: '#/definitions/Parameters'
+      responses:
+        '910':
+          description: Success
+          schema:
+            $ref: '#/definitions/ResponceData'
+        '999':
+          description: Success
+          schema:
+            $ref: '#/definitions/ResponceData'
+definitions:
+  ResponseData:
+    type: object
+    properties:
+      Code:
+        type: number
+      Message:
+        type: string
+      Data:
+        type: object
+      Content:
+        type: object
+  Product:
+    type: object
+    properties:
+      ProductFor:
+        type: string
+      ProductType:
+        type: string
+      ProductDesign:
+        type: string
+      ProductBrand:
+        type: string
+      ProductPrice:
+        type: number
+      ProductDiscount:
+        type: number
+      ProductStock:
+        type: number
+      ProductSize:
+        type: string
+      ProductMaterial:
+        type: string
+      ProductRating:
+        type: number
+      ProductReviews:
+        $ref: '#/definitions/Reviews'
+      ProductColour:
+        type: string
+      RefundApplicable:
+        type: boolean
+      ReplacementApplicable:
+        type: boolean
+      ProductDescription:
+        type: string
+  ProductDetails:
+    type: object
+    properties:
+      Id:
+        type: number
+      ProductSKU:
+        type: string
+      MinioObject_URl:
+        type: string
+      ProductFor:
+        type: string
+      ProductType:
+        type: string
+      ProductDesign:
+        type: string
+      ProductBrand:
+        type: string
+      ProductPrice:
+        type: number
+      ProductDiscount:
+        type: number
+      ProductDiscountPrice:
+        type: string
+      ProductStock:
+        type: number
+      ProductSize:
+        type: string
+      ProductMaterial:
+        type: string
+      ProductRating:
+        type: number
+      ProductReviews:
+        $ref: '#/definitions/Reviews'
+      ProductColour:
+        type: string
+      RefundApplicable:
+        type: boolean
+      ReplacementApplicable:
+        type: boolean
+      ProductDescription:
+        type: string
+  Reviews:
+    type: object
+    properties:
+      Name:
+        type: string
+      Comment:
+        type: string
+  Category:
+    type: object
+    properties:
+      ProductFor:
+        type: string
+      ProductType:
+        type: string
+      Description:
+        type: string
+  CategoryDetails:
+    type: object
+    properties:
+      Id:
+        type: number
+      ProductFor:
+        type: string
+      ProductType:
+        type: string
+      MinioObject_URL:
+        type: string
+      Description:
+        type: string
+  CartDetails:
+    type: object
+    properties:
+      Id:
+        type: number
+      UserName:
+        type: string
+      ProductSKU:
+        type: string
+      MinioObject_Url:
+        type: string
+      ProductFor:
+        type: string
+      ProductType:
+        type: string
+      ProductDesign:
+        type: string
+      ProductBrand:
+        type: string
+      ProductPrice:
+        type: number
+      ProductDiscount:
+        type: number
+      ProductDiscountPrice:
+        type: number
+      ProductQuantity:
+        type: number
+      ProdyctSize:
+        type: string
+      ProductColour:
+        type: string
+      ProductDescription:
+        type: string
+  WishListDetails:
+    type: object
+    properties:
+      Id:
+        type: number
+      UserName:
+        type: string
+      ProductSKU:
+        type: string
+      MinioObject_Url:
+        type: string
+      ProductFor:
+        type: string
+      ProductType:
+        type: string
+      ProductDesign:
+        type: string
+      ProductBrand:
+        type: string
+      ProductPrice:
+        type: number
+      ProductDiscount:
+        type: number
+      ProductDiscountPrice:
+        type: number
+      ProdyctSize:
+        type: string
+      ProductColour:
+        type: string
+      ProductDescription:
+        type: string
+  UserInfoList:
+    type: object
+    properties:
+      ListOfAddress:
+        type: array
+        items:
+          $ref: '#/definitions/Address'
+  Address:
+    type: object
+    properties:
+      UserName:
+        type: string
+      Name:
+        type: string
+      PhoneNumber:
+        type: number
+      AddressLines:
+        type: string
+      PostOffice:
+        type: string
+      City:
+        type: string
+      State:
+        type: string
+      PinCode:
+        type: string
+      Landmark:
+        type: string
+      BillingAddress:
+        type: boolean
+      ShippingAddress:
+        type: boolean
+      Default:
+        type: boolean
+  CartList:
+    type: object
+    properties:
+      ListOfProducts:
+        type: array
+        items:
+          $ref: '#/definitions/CartDetails'
+  WishlistList:
+    type: object
+    properties:
+      ListOfProducts:
+        type: array
+        items:
+          $ref: '#/definitions/WishListDetails'
+  RegisterModel:
+    type: object
+    properties:
+      Title:
+        type: string
+      FullName:
+        type: string
+      PhoneNumber:
+        type: number
+      Email:
+        type: string
+      Password:
+        type: string
+      VerificationType:
+        type: string
+  RegisterModelDetails:
+    type: object
+    properties:
+      Id:
+        type: number
+      Title:
+        type: string
+      FullName:
+        type: string
+      UserName:
+        type: string
+      PhoneNumber:
+        type: number
+      Email:
+        type: string
+      Password:
+        type: string
+      VerificationType:
+        type: string
+      VerificationCode:
+        type: string
+      Status:
+        type: string
+      WrongAttemptCount:
+        type: integer
+      OTPExp:
+        type: string
+  LoginModel:
+    type: object
+    properties:
+      UserName:
+        type: string
+      Password:
+        type: string
+  SocialLoginModel:
+    type: object
+    properties:
+      Token:
+        type: string
+      Email:
+        type: string
+      ID:
+        type: string
+  GoogleVerificationModel:
+    type: object
+    properties:
+      name:
+        type: string
+      email:
+        type: string
+      email_verified:
+        type: boolean
+      azp:
+        type: string
+      aud:
+        type: string
+      sub:
+        type: string
+      at_hash:
+        type: string
+      iss:
+        type: string
+      jti:
+        type: string
+      iat:
+        type: string
+      exp:
+        type: string
+      picture:
+        type: string
+      given_name:
+        type: string
+      family_name:
+        type: string
+      locale:
+        type: string
+      alg:
+        type: string
+      kid:
+        type: string
+  FacebookVerificationModel:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+  ForgotPassword:
+    type: object
+    properties:
+      UserName:
+        type: string
+      VerificationType:
+        type: string
+  ForgotPasswordDetails:
+    type: object
+    properties:
+      UserName:
+        type: string
+      VerificationType:
+        type: string
+      VerificationCode:
+        type: string
+      Status:
+        type: string
+      OTPExp:
+        type: string
+  VerificationModel:
+    type: object
+    properties:
+      UserName:
+        type: string
+      Password:
+        type: string
+      VerificationCode:
+        type: string
+  ChangePasswordModel:
+    type: object
+    properties:
+      UserName:
+        type: string
+      OldPassword:
+        type: string
+      NewPassword:
+        type: string
+  Subscribe:
+    type: object
+    properties:
+      UserName:
+        type: string
+  ResponceData:
+    type: object
+    properties:
+      Code:
+        type: string
+      Message:
+        type: string
+      Data:
+        type: object
+      Content:
+        type: object
+  Audience:
+    type: object
+    properties:
+      Secret:
+        type: string
+      Iss:
+        type: string
+      Aud:
+        type: string
+  Parameters:
+    type: object
+    properties:
+      grand_type:
+        type: string
+      refersh_token:
+        type: string
+      client_id:
+        type: string
+      client_secret:
+        type: string
+      username:
+        type: string
+      password:
+        type: string
+      fullname:
+        type: string
+  RToken:
+    type: object
+    properties:
+      Id:
+        type: string
+      ClientId:
+        type: string
+      RefreshToken:
+        type: string
+      IsStop:
+        type: integer

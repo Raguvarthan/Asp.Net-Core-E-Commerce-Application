@@ -1,0 +1,30 @@
+<div class="addressBookWrapper">
+    <div class="primaryAddressWrapper">
+        <h3 class="primaryAddressHeading">Your Primary Address</h3>
+        <div class="userAddressWrap">
+            <div class="addAddressButtonWrap"></div>
+            <div class="billingAddressWrap">
+                <h4>Billing Address</h4>
+                <div>
+                    {{billingAddress.name}}
+                    <br>{{billingAddress.addressLines}}
+                    <br>{{billingAddress.city}}
+                    <br> {{billingAddress.pinCode}}
+                    <br> {{billingAddress.state}}
+                    <br> {{billingAddress.phoneNumber}}
+                </div>                
+            </div>
+            <div class="deliveryAddressWrap">
+                <h4>Delivery Address</h4>
+                <div>
+                    {{shippingAddress.name}}
+                    <br>{{shippingAddress.addressLines}}
+                    <br>{{shippingAddress.city}}
+                    <br> {{shippingAddress.pinCode}}
+                    <br> {{shippingAddress.state}}
+                    <br> {{shippingAddress.phoneNumber}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

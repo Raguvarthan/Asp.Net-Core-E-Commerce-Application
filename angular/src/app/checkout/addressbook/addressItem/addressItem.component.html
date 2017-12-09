@@ -1,0 +1,17 @@
+<div class="addAddressBook">
+    <div class="address">
+        <p> 
+            {{address.name}}
+            <br> {{address.addressLines}}
+            <br> {{address.city}}
+            <br> {{address.pinCode}}
+            <br> {{address.state}}
+            <br><span>Ph:</span>{{address.phoneNumber}}
+        </p>
+    </div>    
+    <p>
+        <button class="setAddressBillingDelivery" (click)="setBillingAddress()"><span class="fa fa-inr"></span>Select As Billing Address</button>
+        <button class="setAddressBillingDelivery" (click)="setDeliveryAddress()"><span class="fa fa-home"></span>Select As Delivery Address</button>
+    </p>
+    <button class="removeAddress" (click)="removeItem()">Remove</button>
+</div>

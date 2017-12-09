@@ -1,0 +1,59 @@
+@import 'mixin';
+
+.headerBtnWrap{
+	@include MQ(479) {
+		right: 2.5%;
+		bottom: 10px;
+	}
+}
+
+.userIcon{
+	@include MQ(639) {
+		display: block !important;
+	}
+}
+
+.commonIconBtnHeader{
+	@include MQ(479) {
+		width: 32px;
+		height: 35px;
+	}
+}
+.userIcon{
+	&:before{
+		@include MQ(479) {
+			@include font-size(18px);
+			left: 28%;
+		}
+	}
+}
+.wishListBtn{
+	&:before{
+		@include MQ(479) {
+			@include font-size(18px);
+			top: 7px;
+			left: 15%;
+		}
+	}
+}
+.shoppingBagBtn{
+	&:before{
+		@include MQ(479) {
+			width: auto;
+			height: auto;
+			@include font-size(18px);
+			left: 0%;
+		}
+	}
+}
+.shoppingbagCountItem, .wishlistCount {
+	@include font-size(10px);
+	line-height: 1.8;
+
+	@include MQ(479) {
+		width: 15px;
+    	height: 15px;
+    	@include font-size(8px);
+    	line-height: 1.8;
+	}
+}

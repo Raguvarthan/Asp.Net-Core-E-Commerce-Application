@@ -1,0 +1,36 @@
+<div class="sizeTab" *ngIf="topItem.productSize != ''">
+    <div class="clearfix">
+        <div class="selectedSizeWrap">Size <span class="selectedSize"></span></div>
+    </div>
+    <div class="sizeBoxWrap clearfix" *ngIf="topItem.productFor == 'Men' || topItem.productFor == 'Women'">
+        <div><input type="radio" id="option-S" name="selector" value="S" [disabled]="isAvailable('S')" [checked]="(selectedSize == 'S')" (change)="checked('S')"><label for="option-S">S</label></div>
+        <div><input type="radio" id="option-M" name="selector" value="M" [disabled]="isAvailable('M')" [checked]="(selectedSize == 'M')" (change)="checked('M')"><label for="option-M">M</label></div>
+        <div><input type="radio" id="option-L" name="selector" value="L" [disabled]="isAvailable('L')"  [checked]="(selectedSize == 'L')" (change)="checked('L')"><label for="option-L">L</label></div>
+        <div><input type="radio" id="option-XL" name="selector" value="XL" [disabled]="isAvailable('XL')" [checked]="(selectedSize == 'XL')" (change)="checked('XL')"><label for="option-XL">XL</label></div>
+        <div><input type="radio" id="option-XXL" name="selector" value="XXL" [disabled]="isAvailable('XXL')" [checked]="(selectedSize == 'XXL')" (change)="checked('XXL')"><label for="option-XXL">XXL</label></div>        
+    </div>
+    <div class="sizeBoxWrap clearfix" *ngIf="topItem.productFor == 'Boys' || topItem.productFor == 'Girls'">
+        <div><input type="radio" id="option-S" name="selector" value="3_4Y" [disabled]="isAvailable('3_4Y')" [checked]="(selectedSize == '3_4Y')" (change)="checked('3_4Y')"><label for="option-S">3-4Y</label></div>
+        <div><input type="radio" id="option-M" name="selector" value="5_6Y" [disabled]="isAvailable('5_6Y')" [checked]="(selectedSize == '5_6Y')" (change)="checked('5_6Y')"><label for="option-M">5-6Y</label></div>
+        <div><input type="radio" id="option-L" name="selector" value="7_8Y" [disabled]="isAvailable('7_8Y')"  [checked]="(selectedSize == '7_8Y')" (change)="checked('7_8Y')"><label for="option-L">7-8Y</label></div>
+        <div><input type="radio" id="option-XL" name="selector" value="9_10Y" [disabled]="isAvailable('9_10Y')" [checked]="(selectedSize == '9_10Y')" (change)="checked('9_10Y')"><label for="option-XL">9-10Y</label></div>    
+    </div>
+    <div class="sizeBoxWrap clearfix" *ngIf="topItem.productFor == 'All'">
+        <!--<div><input type="radio" id="option-S" name="selector" value="S" [disabled]="isAvailable('S')" [checked]="(selectedSize == 'S')" (change)="checked('S')"><label for="option-S">S</label></div>
+        <div><input type="radio" id="option-M" name="selector" value="M" [disabled]="isAvailable('M')" [checked]="(selectedSize == 'M')" (change)="checked('M')"><label for="option-M">M</label></div>
+        <div><input type="radio" id="option-L" name="selector" value="L" [disabled]="isAvailable('L')"  [checked]="(selectedSize == 'L')" (change)="checked('L')"><label for="option-L">L</label></div>-->
+    </div>
+    <div class="sizeGUideBtnWrap"><a href=""><img src="../assets/img/size-guide.png" alt=""><span>Size Guide</span></a></div>
+</div>
+<div class="quantityCustomWrap">
+    <span class="quantityHeading">Quantity</span>
+    <div class="quantityInputWrap">
+        <!-- <input type="button" value="-" class="minus button">
+									<!-- <input type="button" value="+" class="plus button"> -->
+        <span class="plus button" (click)="addOne()">+</span>
+        <span class="minus button"(click)="reduceOne()">-</span>
+        <input type="number" class="" name="quantity" min=1 [(ngModel)]="quantity" required pattern="^([1-9])$">
+        <!--<input type="number" class="" step="1" min="1" max="" name="quantity" value="1" title="Qty" size="4" pattern="[1-9]*" inputmode="numeric">-->
+    </div>
+    <div>Remaining: {{remainingQty}}</div>
+</div>

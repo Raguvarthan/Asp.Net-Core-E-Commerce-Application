@@ -1,0 +1,49 @@
+<div class="addNewAddressWrapper" id="newAddress">
+    <h2 class="addNewAddressHeading">Add a new address</h2>
+    <div class="addNewAddressFormWrap">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="formRow">
+            <div class="twoCol">
+                <input type="text" name="name" placeholder="Name*" class="error" ngModel required>
+                <div class="error" *ngIf="f.controls.name?.errors && f.controls.name?.touched"><span class="error">Please enter recipient Name</span></div>
+            </div>
+            <div class="twoCol">
+                <input type="text" name="phoneNumber" placeholder="Phone Number*" ngModel required pattern="^([0-9]{10})$">
+                <div class="mobileNumberError" *ngIf="f.controls.phoneNumber?.errors && f.controls.phoneNumber?.touched"><span class="error">Please enter a valid Mobile Number</span></div>
+            </div>
+        </div>
+        <div class="formRow">
+            <div class="twoCol">                
+                <input type="text" name="pinCode" placeholder="PinCode*" class="error" ngModel required>
+                <div class="error" *ngIf="f.controls.pinCode?.errors && f.controls.pinCode?.touched"><span class="error">Please enter a PinCode</span></div>
+            </div>
+            <div class="twoCol">
+                <input type="text" name="postOffice" placeholder="Post Office" ngModel>
+            </div>
+        </div>
+        <div class="formRow">            
+            <textarea type="text" name="addressLines" placeholder="Address*" class="error" ngModel required></textarea>
+            <div class="error" *ngIf="f.controls.addressLines?.errors && f.controls.addressLines?.touched"><span class="error">Please enter the Address</span></div>
+        </div>
+        <div class="formRow">
+            <div class="twoCol">                
+                <input type="text" name="city" placeholder="City/District/Town*" class="error" ngModel required>
+                <div class="error" *ngIf="f.controls.city?.errors && f.controls.city?.touched"><span class="error">City/District/Town</span></div>
+            </div>
+            <div class="twoCol">
+                <input type="text" name="state" placeholder="State*" class="error" ngModel required>
+                <div class="error" *ngIf="f.controls.state?.errors && f.controls.state?.touched"><span class="error">State</span></div>
+            </div>
+        </div>
+        <div class="formRow">            
+            <input type="text" name="landmark" placeholder="landmark" class="error" ngModel>
+        </div>
+        <div class="formRow">
+            <input type="text" name="defaultAddress" [ngModel]="defaultAddress" value="defaultAddress" [hidden]="true">
+            <input type="text" name="shippingAddress" [ngModel]="shippingAddress" value="shippingAddress" [hidden]="true">
+            <input type="text" name="billingAddress" [ngModel]="billingAddress" value="billingAddress" [hidden]="true">
+            <button type="submit" [disabled]="!f.valid">Save Address</button>
+        </div>
+        </form>
+    </div>
+</div>

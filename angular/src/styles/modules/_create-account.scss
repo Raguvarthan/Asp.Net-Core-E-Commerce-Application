@@ -1,0 +1,217 @@
+@import '_mixin';
+
+.regBox{
+	position: relative;
+	padding: 0 5%;
+
+	.formWrap{
+		display: flex;
+		flex-wrap: wrap;
+		// flex-direction: column;
+
+		.formRow.singleRow{
+			flex-basis: 100%;
+
+			.textMsg{
+				font-weight: 300;
+				//color: rgba(#000, 0.8);
+			}
+		}
+		
+		.mobileRow{
+			display: flex;
+			flex-direction: column;
+
+			.mobileNumberWrap{
+				display: flex;
+				flex-direction: row;
+			}
+			.cCode{
+				// flex: 1;
+
+				input[type="text"]{
+					width: 55px !important;
+					margin-right:10px;
+				}
+			}
+			.cMobile{
+				flex: 1;
+				input[type="text"]{
+					width: 88% !important;
+
+					@include MQ(767){
+						width: 100% !important;
+					}
+				}
+			}
+		}
+
+		.formRow{
+			position: relative;
+			margin: 0 0 20px 0;
+			//display: flex;
+			flex-basis: 50%;
+			// align-item: flex-end;
+
+			@include MQ(767) {
+				flex-basis: 100%;
+			}
+
+			span.error {
+				@include font-size(14px);
+				display: block;
+				color: #d34836;
+				padding-bottom: 2px;
+			}
+			
+			
+
+			select{
+				width: 100px;
+				padding: 10px 10px;
+				font-family: 'Roboto';
+				font-weight: 300;
+				@include font-size(20px);
+				border: 1px solid #c1c1c1;
+				outline: none;
+				appearance: none;
+				background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxMiA4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMiA4OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+Cjx0aXRsZT5jaGV2cm9uZG93bjwvdGl0bGU+Cjxwb2x5Z29uIGlkPSJTaGFwZSIgZmlsbD0iIzc3NyIgcG9pbnRzPSIxLjQsMC42IDAsMiA2LDggMTIsMiAxMC42LDAuNiA2LDUuMiAiLz4KPC9zdmc+Cg==");
+				background-position: 85% center;
+				background-size: auto 15%;
+   				background-repeat: no-repeat;
+
+   				@include MQ(767) {
+					@include font-size(18px);
+				}
+
+				@include MQ(539) {
+					@include font-size(16px);
+				}
+			}
+			input[type='text'], input[type='email'], input[type='password']{
+				width: 90%;
+				padding: 10px 10px;
+				font-family: 'Roboto';
+				font-weight: 300;
+				@include font-size(20px);
+				border: 1px solid #c1c1c1;
+				outline: none;
+
+				@include MQ(767) {
+					width: 100%;
+					@include font-size(18px);
+				}
+
+				@include MQ(539) {
+					@include font-size(16px);
+				}
+			}
+			input[type='text'].error, input[type='email'].error, input[type='password'].error{
+				border-bottom: 1px solid #d34836;
+			}
+
+			input[type="checkbox"]:not(:checked), input[type="checkbox"]:checked {
+			  position: absolute;
+			  left: -9999px;
+			}
+			input[type="checkbox"]:not(:checked) + label, input[type="checkbox"]:checked + label {
+			  position: relative;
+			  padding-left: 1.95em;
+			  cursor: pointer;
+			  font-weight: 300;
+			  font-family: 'Roboto';
+			}
+
+			input[type="checkbox"]:not(:checked) + label:before, input[type="checkbox"]:checked + label:before {
+			  content: '';
+			  position: absolute;
+			  left: 0; top: 0;
+			  width: 1.25em; height: 1.25em;
+			  border: 1px solid #c1c1c1;
+			  background: #fff;
+			  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+			}
+			input[type="checkbox"]:not(:checked) + label:after, input[type="checkbox"]:checked + label:after {
+			  content: '✔';
+			  position: absolute;
+			  top: .1em; left: .08em;
+			  font-size: 1.2em;
+			  line-height: 0.8;
+			  color: #000;
+			  background-color: #fff;
+			  transition: all .2s;
+			}
+			input[type="checkbox"]:not(:checked) + label:after {
+			  opacity: 0;
+			  transform: scale(0);
+			}
+			input[type="checkbox"]:checked + label:after {
+			  opacity: 1;
+			  transform: scale(1);
+			}
+			button[type="submit"].createAccount{
+				width: 90%;
+				/*float: right;*/
+				position: relative;
+				display: block;
+				background: rgba(17, 17, 17, 1);
+				padding: 12px;
+				@include font-size(14px);
+				// font-weight: 300;
+			  	font-family: 'Roboto';
+			  	letter-spacing: 0.08em;
+				color: #fff;
+				border: none;
+				text-decoration: none;
+				outline: none;
+				box-shadow: inset 0 0 0 0 rgba(252, 119, 0, 1.0);
+			    transition: all ease 0.8s;
+
+			    @include MQ(767) {
+			    	width: 100%;
+			    }
+			}
+			button[type="submit"].createAccount:hover {
+			    box-shadow: inset 0 312px 0 0 rgba(252, 119, 0, 1.0);
+			    color: #fff;
+			}
+			button[type="submit"].createAccount:disabled{
+				width: 90%;
+				/*float: right;*/
+				position: relative;
+				display: block;
+				background: grey;
+				padding: 12px;
+				@include font-size(14px);
+				// font-weight: 300;
+			  	font-family: 'Roboto';
+			  	letter-spacing: 0.08em;
+				color: #fff;
+				border: none;
+				text-decoration: none;
+				outline: none;
+				box-shadow: none;
+			    transition: all ease 0.8s;
+
+			    @include MQ(767) {
+			    	width: 100%;
+			    }
+			}
+		}
+		.formRow.termsRow{
+			flex-basis: 100%;
+			margin: 10px 0 30px 0;
+			
+			a{
+				font-weight: 300;
+				border-bottom: 1px solid rgba(#000, 0.5);
+				text-decoration: none;
+				transition: all 0.5s ease;
+
+				&:hover{
+					border-bottom: 1px solid rgba(#000, 0);
+				}
+			}
+		}
+	}
+}
